@@ -1319,6 +1319,128 @@ footer {
   .cintas-grid { grid-template-columns: repeat(2,1fr); }
   #catalogo::before { display: none; }
 }
+/* ═══════════════════════════════════════
+     PORTAL DE CLIENTES — FACTURAS
+  ═══════════════════════════════════════ */
+  #portal-facturas {
+    display: none;
+    background: #FFFFFF;
+    border-top: 3px solid var(--red);
+    padding: 100px 60px;
+    animation: fadeUp 0.5s ease;
+  }
+  .portal-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 56px; flex-wrap: wrap; gap: 24px;
+  }
+  .portal-user-badge {
+    display: flex; align-items: center; gap: 12px;
+    background: #F7F6F3;
+    border: 1px solid #E0DFDB;
+    padding: 12px 20px;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+  .portal-user-avatar {
+    width: 32px; height: 32px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 14px; color: white;
+  }
+  .portal-user-name { font-size: 13px; font-weight: 600; color: #111; }
+  .portal-user-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #999; }
+
+  .facturas-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #E0DFDB;
+  }
+  .facturas-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 14px;
+  }
+  .facturas-table thead {
+    background: #111111;
+    color: #FFFFFF;
+  }
+  .facturas-table thead th {
+    padding: 18px 24px;
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; font-weight: 500;
+    white-space: nowrap;
+  }
+  .facturas-table thead th:first-child { border-left: 3px solid var(--red); }
+  .facturas-table tbody tr {
+    border-bottom: 1px solid #E0DFDB;
+    transition: background 0.15s;
+  }
+  .facturas-table tbody tr:hover { background: #F7F6F3; }
+  .facturas-table tbody tr:last-child { border-bottom: none; }
+  .facturas-table td {
+    padding: 20px 24px;
+    color: #333;
+    vertical-align: middle;
+  }
+  .facturas-table td:first-child {
+    font-family: var(--font-mono); font-size: 12px; color: #888;
+  }
+  .folio-badge {
+    display: inline-block;
+    background: #F0EFEC;
+    border: 1px solid #E0DFDB;
+    padding: 4px 10px;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 1px; color: #333;
+  }
+  .monto-cell {
+    font-family: var(--font-display); font-size: 17px; color: #111;
+  }
+  .status-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px;
+    font-family: var(--font-mono); font-size: 9px;
+    letter-spacing: 2px; text-transform: uppercase;
+    border-radius: 0;
+  }
+  .status-pagada { background: rgba(16,185,129,0.1); color: #059669; border: 1px solid rgba(16,185,129,0.3); }
+  .status-pendiente { background: rgba(245,158,11,0.1); color: #D97706; border: 1px solid rgba(245,158,11,0.3); }
+  .status-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+  .doc-links { display: flex; gap: 8px; }
+  .doc-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 14px;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 1px; text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid;
+    transition: background 0.2s, color 0.2s;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  }
+  .doc-link-pdf { color: var(--red); border-color: rgba(200,16,46,0.3); }
+  .doc-link-pdf:hover { background: var(--red); color: white; }
+  .doc-link-xml { color: #2563EB; border-color: rgba(37,99,235,0.3); }
+  .doc-link-xml:hover { background: #2563EB; color: white; }
+  .doc-link svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+  .portal-empty-state {
+    text-align: center; padding: 80px 40px;
+    background: #F7F6F3;
+    border: 1px dashed #E0DFDB;
+    margin-top: 24px;
+  }
+  .portal-empty-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.3; }
+  .portal-empty-text { font-size: 15px; color: #999; font-weight: 300; }
+
+  @media (max-width: 768px) {
+    #portal-facturas { padding: 60px 24px; }
+    .facturas-table thead th, .facturas-table td { padding: 14px 16px; }
+  }
+
+</style>
+</head>
+<body>
 
 <!-- CURSOR -->
 <div class="cursor" id="cursor"></div>
